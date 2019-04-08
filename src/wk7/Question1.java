@@ -19,6 +19,16 @@ public class Question1 {
 		return contained;
 	}
 
+	private static boolean containsRec(Cell<Integer> list1, int numInList1) {
+		if (list1 == null) {
+			return false;
+		}
+		if (list1.first.equals(numInList1)) {
+			return true;
+		} else {
+			return containsRec(list1.next, numInList1);
+		}
+	}
 
 	private static Cell<Integer> parseIntLinkedList(String str) {
 		Cell<Integer> list = null;
