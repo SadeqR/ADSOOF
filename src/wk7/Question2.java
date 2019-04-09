@@ -59,7 +59,20 @@ public class Question2 {
 		return temp3;
 	}
 
-
+	private static void deleteItrDest(Cell<Integer> list1, Integer numInList1) {
+		if (list1 != null) {
+			if (numInList1.equals(list1.first)) {
+				list1.first = list1.next.first;
+				list1.next = list1.next.next;
+			} else {
+				Cell<Integer> ptr = list1;
+				for (; ptr.next != null && !numInList1.equals(ptr.next.first); ptr = ptr.next) {
+				}
+				if (ptr.next != null)
+					ptr.next = ptr.next.next;
+			}
+		}
+	}	
 
 	private static Cell<Integer> parseIntLinkedList(String str) {
 		Cell<Integer> list = null;
